@@ -22,6 +22,11 @@ public class WebServer {
 		if(server == null) return;
 		
 		server.createContext("/", new MyHandler());
+		server.createContext("/index.html", new MyHandler());
+		server.createContext("/images", new ImageHandler());
+		server.createContext("/css", new CSSHandler());
+		server.createContext("/js", new JSHandler());
+		server.createContext("/downloads", new DLHandler());
 		server.setExecutor(null); // creates a default executor
 		server.start();
 		Runtime.getRuntime().addShutdownHook(new CleanUpThread(server));
